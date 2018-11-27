@@ -13,7 +13,7 @@ conda install -c induja companno
 ```
 
 ### Quickstart
-CompAnno uses AnnotationTable objects to load and store the contents of gff files. Annotations can be loaded from a file as follows:
+CompAnno uses AnnotationTable objects to load and store the contents of gff files (An annotation format provided by NCBI, and also output by prokka). Annotations can be loaded from a file as follows:
 ```python
 from companno import AnnotationTable, compare_counts
 k12 = AnnotationTable('k12.gff')
@@ -22,6 +22,10 @@ HS = AnnotationTable('HS.gff')
 ```
 
 ##### Compare 2 genomes:
+
+`compare_counts` will count the total number of annotations for each value of the given field in each `AnnotationTable`, and also calculate the difference between the table with the highest count and that with the lowest.
+
+Ex. when given strand, `compare_counts` will count how many values are on the positive strand, and how many are on the negative strand.
 
 ```python
 compare_counts({'k12': k12, 'O157H7': O157H7}, 'strand')
@@ -36,13 +40,15 @@ Output:
 
 ##### Compare COGS for 2 genomes:
 
+`compare_cogs` will run compare counts for the field `cogs`, and then annotate the output with the cog names and cog categories.
+
 ```python
 compare_cogs({'k12':k12, 'O157H7':O157H7})
 ```
 
 Output:
 
-|         | k12  | O157H7 | difference | category | Name                                         |
+|         | k12  | O157H7 | difference | category | name                                         |
 | ------- | ---- | ------ | ---------- | -------- | -------------------------------------------- |
 | COG2963 | 0    | 19     | 19         | X        | Transposase and inactivated derivatives      |
 | COG2310 | 0    | 10     | 10         | T        | Stress response protein SCP2                 |
@@ -54,6 +60,15 @@ Output:
 ```python
 compare_cogs({'k12':k12, 'O157H7':O157H7, 'HS': HS})
 ```
+
+Output:
+
+|         | k12  | O157H7 | HS   | difference | category | name                                         |
+| ------- | ---- | ------ | ---- | ---------- | -------- | -------------------------------------------- |
+| COG2963 | 0    | 19     | 0    | 19         | X        | Transposase and inactivated derivatives      |
+| COG2310 | 0    | 10     | 0    | 10         | T        | Stress response protein SCP2                 |
+| COG3637 | 1    | 11     | 2    | 10         | M        | Opacity protein and related surface antigens |
+| ...     | ...  | ...    | ...  | ...        | ...      | ...                                          |
 
 ##### Compare acrros genome sets:
 
@@ -101,6 +116,7 @@ k12_df = k12.as_df() # Returns pandas dataframe
 ##### DataFrame to AnnotationTable:
 
 ```python
+
 import pandas as pd
 
 df = pd.read_csv('frick.csv') # where frick.csv contains annotation information using
