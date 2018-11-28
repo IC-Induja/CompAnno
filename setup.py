@@ -4,7 +4,7 @@ long_description = '''
 Comparitve analysis of genome annotations.
 '''
 
-setup(name='genomics',
+setup(name='companno',
       version='0.0.1',
       description='Comparative analysis of genome annotations.',
       long_description=long_description,
@@ -12,7 +12,7 @@ setup(name='genomics',
       author_email='ic.induja@gmail.com',
       url='https://github.com/IC-Induja/companno',
       license='MIT',
-      data_files=[('data', ['companno/data/cognames.tsv'])],
+      data_files=[('data', ['data/cognames.tsv'])],
       install_requires=['pandas>=0.23.4',
                         'six>=1.11.0',
                         'numpy>=1.15.1'],
