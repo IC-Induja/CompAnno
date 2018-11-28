@@ -12,7 +12,6 @@ setup(name='companno',
       author_email='ic.induja@gmail.com',
       url='https://github.com/IC-Induja/companno',
       license='MIT',
-      data_files=[('data', ['data/cognames.tsv'])],
       install_requires=['pandas>=0.23.4',
                         'six>=1.11.0',
                         'numpy>=1.15.1'],
@@ -33,4 +32,6 @@ setup(name='companno',
           'Topic :: Scientific/Engineering',
           'Topic :: Scientific/Engineering :: Bio-Informatics'
       ],
-      packages=find_packages())
+      packages=find_packages(),
+      package_dir={'companno': 'companno'},
+      package_data={'companno/data': ['data/cognames.tsv']})
