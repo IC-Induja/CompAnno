@@ -34,4 +34,4 @@ setup(name='companno',
       ],
       packages=find_packages(),
       package_dir={'companno': 'companno'},
-      package_data={'companno/data': ['data/cognames.tsv']})
+      package_data={'companno': ['data/cognames.tsv']})
