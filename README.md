@@ -15,7 +15,7 @@ conda install -c induja companno
 ### Quickstart
 CompAnno uses AnnotationTable objects to load and store the contents of gff files (An annotation format provided by NCBI, and also output by prokka). Annotations can be loaded from a file as follows:
 ```python
-from companno import AnnotationTable, compare_counts
+from companno import AnnotationTable, compare_counts, compare_cogs
 k12 = AnnotationTable('k12.gff')
 O157H7 = AnnotationTable('O157H7.gff')
 HS = AnnotationTable('HS.gff')
