@@ -73,7 +73,7 @@ class AnnotationTable:
             return AnnotationTable(self.data[self.data[field] == value])
 
     def append(self, annotation_table):
-        return self.data.append(annotation_table.data)
+        return AnnotationTable(self.data.append(annotation_table.data))
 
     def compare(self, other, field):
         shared_values = self.data[field][self.data[field].isin(other.data[field])].drop_duplicates()
