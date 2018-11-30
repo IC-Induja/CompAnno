@@ -5,7 +5,7 @@ Comparitve analysis of genome annotations.
 '''
 
 setup(name='companno',
-      version='0.0.1',
+      version='0.0.3',
       description='Comparative analysis of genome annotations.',
       long_description=long_description,
       author='Induja Chandrakumar',

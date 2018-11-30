@@ -1,12 +1,13 @@
 package:
   name: companno
-  version: "0.0.1"
+  version: "0.0.3"
 
 source:
   git_url: https://github.com/IC-Induja/CompAnno
+  git_rev: v0.0.3
 
 build:
-  number: 1
+  number: 3
 
 requirements:
   host:
@@ -19,4 +20,3 @@ about:
   summary: Comparative analysis of genome annotations.
   home: https://github.com/IC-Induja/CompAnno
   license: MIT
-  
