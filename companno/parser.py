@@ -15,7 +15,7 @@ class AnnotationTable:
 
         if not source:
             source = pd.DataFrame()
-            
+
         if type(source) == pd.core.frame.DataFrame:
             self.data = source
 
@@ -72,8 +72,8 @@ class AnnotationTable:
         else:
             return AnnotationTable(self.data[self.data[field] == value])
 
-    # def append(self, annotation_table):
-    #     self.data.app
+    def append(self, annotation_table):
+        self.data.append(annotation_table.data)
 
     def compare(self, other, field):
         shared_values = self.data[field][self.data[field].isin(other.data[field])].drop_duplicates()
