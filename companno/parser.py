@@ -11,8 +11,11 @@ import pandas as pd
 from .data import COGS
 
 class AnnotationTable:
-    def __init__(self, source):
+    def __init__(self, source=None):
 
+        if not source:
+            source = pd.DataFrame()
+            
         if type(source) == pd.core.frame.DataFrame:
             self.data = source
 
