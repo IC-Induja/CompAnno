@@ -13,7 +13,7 @@ from .data import COGS
 class AnnotationTable:
     def __init__(self, source=None):
 
-        if not source:
+        if source is None:
             source = pd.DataFrame()
 
         if type(source) == pd.core.frame.DataFrame:

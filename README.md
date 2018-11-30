@@ -91,12 +91,12 @@ compare_cogs({"+ strand" : k12_positive_strand, "- strand": k12_negative_strand}
 Can use lambda functions in python to get very specific subets of an Annotation Table:
 
 ```python
-k12_2000_to_13000 = k12.get('start', lambda start: start > 2000) \
-						.get('stop', lambda stop: stop < 13000)
-O157H7_2000_to_13000 = O157H7.get('start', lambda start: start > 2000) \
-								.get('stop', lambda stop: stop < 13000)
+k12_20000_to_130000 = k12.get('start', lambda start: start > 20000) \
+						.get('end', lambda end: end < 130000)
+O157H7_20000_to_130000 = O157H7.get('start', lambda start: start > 20000) \
+								.get('end', lambda end: end < 130000)
 # return how many annotations are on each strand, for each subset
-compare_counts({"k12_region" : k12_2000_to_13000, "O157H7_region": O157H7_2000_to_13000}, strand)
+compare_counts({"k12_region" : k12_20000_to_130000, "O157H7_region": O157H7_20000_to_130000}, 'strand')
 ```
 
 ### Under the Hood
@@ -110,7 +110,7 @@ objects can be easily imported to and exported from pandas DataFrames.
 ##### AnnotationTable to DataFrame:
 
 ```python
-k12_df = k12.as_df() # Returns pandas dataframe
+k12.as_df() # Returns pandas dataframe
 ```
 
 ##### DataFrame to AnnotationTable:
@@ -121,5 +121,5 @@ import pandas as pd
 
 df = pd.read_csv('frick.csv') # where frick.csv contains annotation information using
 								# gff headers (start, stop, strand, etc.)
-frick = pd.DataFrame(df) ## Returns Annotation Table
+frick = pd.DataFrame(df) ## frik is an Annotation Table
 ```
