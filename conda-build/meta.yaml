@@ -1,13 +1,13 @@
 package:
   name: companno
-  version: "0.0.3"
+  version: "0.0.4"
 
 source:
   git_url: https://github.com/IC-Induja/CompAnno
-  git_rev: v0.0.3
+  git_rev: v0.0.4
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   host:
